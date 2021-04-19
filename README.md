@@ -1,4 +1,46 @@
 # 강재혁 [201840102]
+## [04월 13일]
+>오늘 배운 내용 요약 <br/>
+>무명함수
+>let foo = function(){
+    console.log("첫줄");
+    console.log("둘째줄");
+}
+let foo = () => {
+    console.log("첫줄");
+    console.log("둘째줄");
+function foo (){
+    console.log("첫줄");
+    console.log("둘째줄");
+}
+foo();
+console.log(foo);
+표준 내장함수
+parseInt(): 문자열을 정수로 변환하는 함수
+
+parseFloat(): 문자열을 실수로 변환하는 함수
+let inputA = "52";
+let inputB = "52.273";
+let inputC = "1401동";
+console.log("정수형 전환")
+console.log(parseInt(inputA));
+console.log(parseInt(inputB));
+console.log(parseInt(inputC));
+console.log("실수형 전환")
+console.log(parseFloat(inputA));
+console.log(parseFloat(inputB));
+console.log(parseFloat(inputC));
+console.log("숫자만 출력");
+console.log(Number(inputA));
+console.log(Number(inputB));
+console.log(Number(inputC));
+
+
+표준 내장 함수
+- 자바스크립트에서 기본적으로 지원하는 함수
+- 콜백 함수
+- 함수의 매개 변수로 전달되는 함수
+
 ## [04월 06일]
 >오늘 배운 내용 요약 <br/>
 >**배열**<br/>
