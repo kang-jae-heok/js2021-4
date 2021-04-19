@@ -3,43 +3,43 @@
 >오늘 배운 내용 요약 <br/>
 >무명함수<br/>
 >let foo = function(){  <br/>
-    console.log("첫줄");<br/>
-    console.log("둘째줄");<br/>
-}
-let foo = () => {<br/>
-    console.log("첫줄");<br/>
-    console.log("둘째줄");<br/>
-function foo (){<br/>
-    console.log("첫줄");<br/>
-    console.log("둘째줄");<br/>
-}<br/>
-foo();<br/>
-console.log(foo);<br/>
-표준 내장함수<br/>
-parseInt(): 문자열을 정수로 변환하는 함수<br/>
+>    console.log("첫줄");<br/>
+>    console.log("둘째줄");<br/>
+>}
+>let foo = () => {<br/>
+>    console.log("첫줄");<br/>
+>    console.log("둘째줄");<br/>
+>function foo (){<br/>
+>    console.log("첫줄");<br/>
+>    console.log("둘째줄");<br/>
+>}<br/>
+>foo();<br/>
+>console.log(foo);<br/>
+>표준 내장함수<br/>
+>parseInt(): 문자열을 정수로 변환하는 함수<br/>
 
-parseFloat(): 문자열을 실수로 변환하는 함수<br/>
-let inputA = "52";<br/>
-let inputB = "52.273";<br/>
-let inputC = "1401동";<br/>
-console.log("정수형 전환")<br/>
-console.log(parseInt(inputA));<br/>
-console.log(parseInt(inputB));<br/>
-console.log(parseInt(inputC));<br/>
-console.log("실수형 전환")<br/>
-console.log(parseFloat(inputA));<br/>
-console.log(parseFloat(inputB));<br/>
-console.log(parseFloat(inputC));<br/>
-console.log("숫자만 출력");<br/>
-console.log(Number(inputA));<br/>
-console.log(Number(inputB));<br/>
-console.log(Number(inputC));<br/>
+>parseFloat(): 문자열을 실수로 변환하는 함수<br/>
+>let inputA = "52";<br/>
+>let inputB = "52.273";<br/>
+>let inputC = "1401동";<br/>
+>console.log("정수형 전환")<br/>
+>console.log(parseInt(inputA));<br/>
+>console.log(parseInt(inputB));<br/>
+>console.log(parseInt(inputC));<br/>
+>console.log("실수형 전환")<br/>
+>console.log(parseFloat(inputA));<br/>
+>console.log(parseFloat(inputB));<br/>
+>console.log(parseFloat(inputC));<br/>
+>console.log("숫자만 출력");<br/>
+>console.log(Number(inputA));<br/>
+>console.log(Number(inputB));<br/>
+>console.log(Number(inputC));<br/>
 
 
-표준 내장 함수<br/>
-- 자바스크립트에서 기본적으로 지원하는 함수<br/>
-- 콜백 함수<br/>
-- 함수의 매개 변수로 전달되는 함수<br/>
+>표준 내장 함수<br/>
+>- 자바스크립트에서 기본적으로 지원하는 함수<br/>
+>- 콜백 함수<br/>
+>- 함수의 매개 변수로 전달되는 함수<br/>
 
 ## [04월 06일]
 >오늘 배운 내용 요약 <br/>
