@@ -1,4 +1,46 @@
 # 강재혁 [201840102]
+## [04월 10일]
+>interval = Math.floor(interval / (100*60*60*60)); // 밀리세컨이여서 초로바꾸고 분 , 시,일로 바꿈ㅍ
+>console.log(interval);<br>
+
+>pop  마지막 요소 뺴냄<br>
+
+>1.pop() : 배열의 마지막 주소에 있는 값을 제거.<br>
+>2.shift() : 배열의 첫번째 주소에 있는 값을 제거 후 반환.<br>
+>3.unshift() : 배열의 첫번째 자리에 새로운 요소 추가 후 변경된 배열의 길이를 반환.<br>
+>4.push() : 배열의 마지막에 새로운 요소를 추가 후 변경된 배열의 길이를 반환<br>
+>5.concat() : 두개의 배열을 합쳐주는 함수.<br>
+>6.reverse() : 배열을 역순으로 재배치.<br>
+>7.splice() : 배열의 특정 위치에 배열 요소를 추가하거나 삭제.<br>
+>8.sort() : 배열을 정렬.<br>
+>9.join() : 배열의 모든 요소를 연결해 하나의 문자열로 만듬.<br>
+>10.slice() : 배열의 지정한 부분을 리턴<br>
+
+>forEach() 배열의 요소를 하나씩 뽑아 반복을 돌림<br>
+>map() 콜백 함수에서 리턴하는 것을 기반으로 새로운 배열을 만듦<br>
+
+>let foo  =[1,30,40,50,100];<br>
+
+>foo.forEach((item,index) => {<br>
+>  console.log(`${index} - ${item}`);<br>
+>});<br>
+
+
+
+>let bar = foo.map((item,index) => {<br>
+>  return item;<br>
+>});<br>
+>console.log(bar);<br>
+
+> 예외 처리<br>
+>try{<br>
+>//예외가 발생<br><br>
+>}catch(exception){<br>
+>여기서처리<br>
+>}finally{<br>
+>무조건 실행<br>
+>}<br>
+
 ## [04월 03일]
 >생성자 :객체를 만드는 함수 대문자 시작<br>
 >스크립트는 변수 선언이 let으로 자료형이 무엇인지 상관없이 쓰기때문에 type of 함수를 많이씀<br>
