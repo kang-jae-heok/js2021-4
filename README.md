@@ -32,9 +32,9 @@ __dirname 현재 실행중인 코드의 폴더경로를 나타냅니다
 ### 동기적 파일 읽기
 
 ```jsx
-//모듈 추출 
+/*모듈 추출 */
 const fs require('fs');
-//파일 읽어들이고 출력
+/*파일 읽어들이고 출력*/
 const file = fs.readFileSync('textfile.txt');
 console.log(file);
 console.log(file.toString());
