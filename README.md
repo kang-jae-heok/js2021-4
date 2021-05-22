@@ -1,4 +1,134 @@
 # 강재혁 [201840102]
+##05 22
+### 전역변수
+
+__ filename 현재 실행중인 코드의 파일 경로를 나타냅니다
+
+__dirname 현재 실행중인 코드의 폴더경로를 나타냅니다
+
+### process 객체의 속성
+
+※ Node.js는 process 전역 객체를 제공
+
+※ process 객체는 프로세스 정보를 제공하며, 제어할 수 있게 하는 객체
+
+- env:  컴퓨터 환경 정보를 나타냅니다
+- version:  Node.js  버전을 나타냅니다
+- versions: Node.js와 중속된 프로그램 버전을 나타냅니다
+- arch: 프로세서의 아키텍처를 나타냅니다
+- platform: 플랫폼을 나타냅니다
+
+### process 객체의 매소드
+
+- exit: 프로그램을 종료합니다
+- memoryUsage(): 메모리 사용 정보 객체를 리턴합니다
+- uptime(): 현재 프로그램이 실행된 시간을 리턴합니다.
+
+### 파일 읽기
+
+- fs.readFileSync(<파일 이름>)  —————>동기적으로 파일을 읽어 들입니다
+- fs.readFile(<파일이름>),<콜백 함수>) ————————>비동기적으로  파일 읽어드림
+
+### 동기적 파일 읽기
+
+```jsx
+//모듈 추출 
+const fs require('fs');
+//파일 읽어들이고 출력
+const file = fs.readFileSync('textfile.txt');
+console.log(file);
+console.log(file.toString());
+```
+
+### 비동기적 파일 읽기
+
+```jsx
+//모듈 추출
+const fs require('fs');
+//파일 읽어들임
+fs.readFile('textfile.txt',(error,file))=>{
+//출력
+console.log(file);
+console.log(file.toString());
+});
+```
+
+### 차이점
+
+- 동기적은 *모듈을 만듦→파일을 읽어들이고 출력→ 프로그램 끝* 반면
+- 비동기적은 *모듈을 만듦→프로그램 끝→ 파일을 읽어들이고 출력*
+- 동기적은 읽고출력을하고 프로그램끝을낼떄 파일크기가 크면 코드가 정지
+- 비동기적은 그딴거 없음
+- 비동기적 처리는 프로그래밍 언어 자체는 느리지만 큰 의미는 없어  개발 속도와 유지 보수성이 좋은 프로그래밍 언어를 사용
+
+### process 객체의 이벤트
+
+- exit : 프로세스 종료
+- uncaughtException  예외가 일어날  떄 발생
+
+```jsx
+process.on('exit',()=>{
+  console.log('프로세스가 종료되었습니다');
+});
+
+process.on('uncaughtException',()=>{
+  console.log('예외가 발생되었습니다');
+});
+//오류발생
+error.error.error();
+```
+
+Node.js가 제공하는 객체의 이벤트 : [https://nodejs.org/en/docs/](https://nodejs.org/en/docs/) 
+
+• process 객체 : [https://nodejs.org/dist/latest-v6.x/docs/api/process.html](https://nodejs.org/dist/latest-v6.x/docs/api/process.html)
+
+※ os 모듈의 메소드
+
+- hostname() : 운영체제의 호스트 이름을 리턴
+- type() : 운영체제의 이름을 리턴
+- platform() : 운영체제의 플랫폼을 리턴
+- arch() : 운영체제의 아키텍처를 리턴
+- release() : 운영체제의 버전을 리턴
+- uptime() : 운영체제가 실행된 시간을 리턴
+- loadavg() : 로드 에버리지 정보를 담은 배열을 리턴
+- totalmem() : 시스템의 총 메모리를 리턴
+- freemem() : 시스템의 사용 가능한 메모리를 리턴
+- cpus() : CPU의 정보를 담은 객체를 리턴
+- getNetworkInterfaces() : 네트워크 인터페이스의 정보를 담은 배열을 리턴
+
+※ Url 모듈의 메소드
+
+- parse(urlStr [, ParseQueryString = false, slashesDenoteHost = false]) : URL 문자열을 URL 객체로 변환하여 리턴
+- format(urlObj) : URL 객체를 URL 문자열로 변환하여 리턴
+- resolve(from,to) : 매게 변수를 조합하여 완전한 URL 문자열을 생성해 리턴
+
+※ File System 모듈
+파일읽기
+
+- 실행할 자바스크립트 파일이 있는 폴더에 textfile.txt 이름의 파일을 생성하고
+- fs.readFileSync(<파일 이름>) : 동기적으로 파일을 읽음
+- fs.readFile(<파일 이름>,<콜백 함수>) : 비동기적으로 파일을 읽음
+
+ 비동기 처리의 장점
+• 웹 서버를 C++ 프로그래밍 언어로 만들면 무척 빠르지만, 개발과 유지 보수는
+어려움
+• 전 세계 웹 서비스 기업(페이스북, 트위터 등)도 C++로 웹 서버를 개발하지 않고
+PHP, 자바, 루비, 파이썬, Node.js 등 프로그래밍 언어로 개발
+• 프로그래밍 언어 자체는 느리지만 큰 의미가 없다고 판단해 개발 속도와 유지
+보수성이 좋은 프로그래밍 언어를 사용
+• 자바스크립트 프로그래밍 언어는 C++, 자바보다 느리지만 Node.js를 사용하면
+• 손쉽게 비동기 처리를 구현하여 빠른 처리가 가능
+
+### 파일쓰는 메소드
+
+- fs.writeFileSync(<파일 이름>,<문자열>) : 동기적으로 파일을 씀
+- fs.writeFile(<파일 이름>,<문자열>,<콜백 함수>) : 비동기적으로 파일을 씀
+
+### npm
+
+노드 패키지 매니저
+
+ npm install <모듈이름>
 ## [05월 10일]
 >interval = Math.floor(interval / (100*60*60*60)); // 밀리세컨이여서 초로바꾸고 분 , 시,일로 바꿈ㅍ
 >console.log(interval);<br>
