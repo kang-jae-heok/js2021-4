@@ -1,4 +1,185 @@
 # 강재혁 [201840102]
+## [05월 25일]
+# express
+
+### express 모듈설치
+
+- npm install express@4
+
+### express 기본  모듈
+
+express(): 서버 애플리케이션 객체를 생성합니다
+
+app.use(): 요청이 왔을 떄 실행할 함수를 지정합니다
+
+app.listen(): 서버를 실행합니다
+
+### express 예제
+
+```jsx
+//모듈 추출
+const express = require('express');
+//서버 생성
+const app = express();
+//request 이벤트 리스너 설정
+app.use((request,response)=>{
+  response.send('<h1> Hello expresss</h1>');
+});
+//  서버를 실행
+app.listen(52273,()=>{
+  console.log(('server running at http://127.0.0.1:52273'));
+})
+```
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e3cbcbdd-9245-4741-b104-b81116962960/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e3cbcbdd-9245-4741-b104-b81116962960/Untitled.png)
+
+### 페이지 라우팅
+
+클라이언트 요청에 적절한 페이지를 제공하는 기술
+
+get(path,callback)      GET요청이 발생했을때 
+
+post(path,callback)     POST요청이 발생했을때 
+
+put(path,callback)       PUT요청이 발생했을때 
+
+delete(path,callback)  DELETE요청이 발생했을때 
+
+all(path,callback)        모든요청이 발생했을때 
+
+```jsx
+//모듈 추출
+const express = require('express');
+//서버 생성
+const app = express();
+//request 이벤트 리스너를 설정
+app.get('/page/:id',(request,response)=>{
+  //토큰을 꺼냅니다
+  const id = request.params.id;
+  //응답
+  response.send(`<h1>${id} Page</h1>`)
+});
+
+// 서버실행
+app.listen(52273,()=>{
+  console.log(('server running at http://127.0.0.1:52273'));
+});
+```
+
+### ‘[http://127.0.0.1:52273/page/](http://127.0.0.1:52273/page/273)(여기 값을 get 방식으로 받아와서 보여줌)
+response 객체
+
+send()  데이터 본문을 제공
+
+status() 상태 코드를 제공합
+
+set() 헤더를 설정합니다  ※메소드는 가장 마지막에 실행해야함, 두 번 실행 불가능
+
+```jsx
+//모듈 추출
+const { response } = require('express');
+const express = require('express');
+//서버 생성
+const app = express();
+//request 이벤트 리스너를 설정
+app.get('*',(request,response)=>{
+  response.status(404);
+  response.set('methodA','ABCDE');
+  response.set({
+    'methodB1':'FGHIJ',
+    'methodB2':'KLMNO',
+    
+  })
+  response.send('내 마음대로 본문을 입력합니다');
+}
+)
+
+// 서버실행
+app.listen(52273,()=>{
+  console.log(('server running at http://127.0.0.1:52273'));
+});
+```
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7fecc64-38a0-4b5a-af48-b950a294c982/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7fecc64-38a0-4b5a-af48-b950a294c982/Untitled.png)
+
+### type()매소드
+
+MIME 형식을 지정  ex)type(text/html) :html데이터를의미
+
+### status()매소드
+
+상태코드를 지정
+
+1xx처리중
+
+2xx성공
+
+3xx리다이렉트     redirect() 화면을 출력하지 않고 응답 헤더에 있는 로케이션 속성을 확인해서 해당위치로이동 , 특정 경로로 웹브라우저를 인도 할떄 사용
+
+4xx클라이언트오류
+
+5xx서버오류
+
+### 요청 매개 변수 추출
+
+```jsx
+//모듈 추출
+const { response } = require('express');
+const express = require('express');
+//서버 생성
+const app = express();
+//request 이벤트 리스너를 설정
+app.get('*',(request,response)=>{
+  console.log(request.query);
+  response.send(request.query)
+})
+
+// 서버실행
+app.listen(52273,()=>{
+  console.log(('server running at http://127.0.0.1:52273'));
+});
+```
+
+‘[http://127.0.0.1:52273/?a=10&b=20](http://127.0.0.1:52273/?a=10&b=20) 입력하면
+
+{'a',:'10', 'b':'20'}나옴
+
+쿼리문자열:변수=값 형태로구성 여러쌍의ㅡ 변수와 값을 전달할경우 & 구분
+
+### 미들웨어
+
+정적 파일(이미지,음악,자바스크립트 파일,스타일시트파일) 제공
+
+### morgan  미들웨어 설치
+
+npm install morgan
+
+```jsx
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+
+app.use(morgan('combined'));
+
+app.get('*', (req, res)=> {
+res.send('Check CMD');
+});
+
+app.listen(52273, ()=> {
+  console.log('Server is Running at http://localhost:52273');
+})
+```
+
+### body-parser 미들웨어
+
+ npm install body-parser
+
+params 객체: URL의 토큰 보기가 간편
+
+query 객체 :URL의 요청 매개변수 ㅌ큰보다 많은데이터를 전달 주소로 어떤데이터가 오고가는지확인가능
+
+body 객체:ㅣ 대용량 문자열 등을 전송할 떄 사용 주소에 데이터를 기록못하므로 새로고침이나 즐겨찾기 기능 등을 활용할수없음
+
 ## [05월 18일]
 ### 전역변수
 
