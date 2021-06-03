@@ -1,4 +1,90 @@
 # 강재혁 [201840102]
+## [6월 1일]
+### 웹 브라우저에서 사용 할 수 있는 자바스크립트 범위
+
+let, const  키워드르 사용 하지 못함 var을 써야됨
+
+화살표함수
+
+for of 반복문
+
+### Window 객체
+
+alrert(메세지)  경고창을 띄어줌
+
+prompt(메세지,<임시글자>) 프롬프트를 출력
+
+### location  메소드
+
+assign(<링크>) 매개변수로 전달한 위치로 이동
+
+reload() 새로 고침
+
+replace() 매개변수로 전달한 위치로 이동  ※뒤로가기는 못함
+
+### history 메소드
+
+forward()  앞으로 이동
+
+back() 뒤로 이동
+
+### 문서 객체
+
+html 태그를 자바 스크립트에서 사용할 수 있는 객체로 만듦
+
+### 정적으로 문서 객체를 생성한다
+
+HTML 페이제에 있는 태그들을 읽으면서 생성하는것
+
+### 동적으로 문서 객체를 생성한다
+
+자바스크립트를 사용하여 프로그램 실행 중에 문서 객체를 생성하는것
+
+### 문서 객체 선택
+
+document.getElementByid(아이디) 아이디를 사용해 문서 객체를 선택
+
+document.querySelector(선택자) 선택자를 사용해 문서 객체를 선택  ※ 첫태그만 선택됨
+
+### 문서 객체 조작
+
+innerHTML
+
+```jsx
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Dom Basic</title>
+  <script>
+    window.onload = function(){
+      var headers = document.querySelectorAll('h1');
+      for (var i = 0; i<headers.length; i++){
+        var header = new headers[i];
+        header.style.color = 'orange';
+        header.style.background = 'red';
+        header.innerHTML = 'From JavaScript';
+      }
+    };
+  </script>
+</head>
+<body>
+<h1>Header</h1>
+<h1>Header</h1>
+<h1>Header</h1>
+  
+</body>
+</html>
+```
+
+이렇게하면 다 적용이됨
+
+### 속성 조작
+
+img.src ='ring.png'
+
+alert(img.src)
 ## [05월 25일]
 # express
 
